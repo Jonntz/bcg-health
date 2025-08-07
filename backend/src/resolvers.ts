@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "./lib/prisma";
 import { generateToken, hashPassword, comparePassword } from "./utils/auth";
-
-const prisma = new PrismaClient();
 
 const resolvers = {
   Query: {
