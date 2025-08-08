@@ -24,10 +24,11 @@ async function startServer() {
 
   await server.start();
 
+  app.use("/graphql", cors());
+  app.use("/graphql", express.json());
+
   app.use(
     "/graphql",
-    cors(),
-    json(),
     expressMiddleware(server, {
       context: async ({ req }: ExpressContextFunctionArgument) => {
         const token = req.headers.authorization || "";

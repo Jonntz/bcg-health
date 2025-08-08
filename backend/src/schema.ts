@@ -7,13 +7,28 @@ const typeDefs = gql`
     points: Int
   }
 
+  type CheckIn {
+    id: ID!
+    date: String!
+    sleepHours: Int
+    meals: Int
+    exerciseMinutes: Int
+  }
+
   type Query {
     me: User
+    myCheckIns: [CheckIn]
   }
 
   type Mutation {
     register(email: String!, password: String!): String
     login(email: String!, password: String!): String
+    addCheckIn(
+      date: String!
+      sleepHours: Int!
+      meals: Int!
+      exerciseMinutes: Int!
+    ): Boolean
   }
 `;
 
